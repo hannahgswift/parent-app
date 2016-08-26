@@ -1,7 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  flashMessages: Ember.inject.service(),
   session: Ember.inject.service('session'),
+
   actions: {
     toggleBubble(){
       const bubble = document.querySelector(".bubble");
@@ -9,8 +11,7 @@ export default Ember.Controller.extend({
     },
 
     invalidateSession() {
-      this.get('session').invalidate();
-      this.transitionToRoute('guest.welcome')
+      this.get('session').invalidate()
       .then(() => {
         this.get('flashMessages').success('You are now logged out!');
       })

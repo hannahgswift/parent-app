@@ -22,7 +22,7 @@ module.exports = function(environment) {
     },
     flashMessageDefaults: {
       // flash message defaults
-      timeout: 10000,
+      timeout: 6000,
     },
   };
 
@@ -32,7 +32,8 @@ module.exports = function(environment) {
   };
   ENV['ember-simple-auth'] = {
     baseURL: '/',
-    routeAfterAuthentication: 'guest'
+    routeAfterAuthentication: 'guest.login',
+    routeIfAlreadyAuthenticated: 'guest.login'
   };
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
